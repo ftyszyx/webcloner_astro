@@ -1,0 +1,20 @@
+---
+import '../styles/globals.css'
+
+const { title = 'WebCloner', lang = 'zh-CN' } = Astro.props
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script is:inline src="https://at.alicdn.com/t/c/font_5026634_57ft7qmsqv2.js"></script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
