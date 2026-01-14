@@ -1,17 +1,72 @@
 ---
 import '../styles/globals.css'
 
-const { title = 'WebCloner', lang = 'zh-CN' } = Astro.props
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+  lang?: string;
+}
+
+const {
+  title = 'WebCloner - 备份你需要的一切',
+  description = 'WebCloner 是一个强大的网站内容备份工具，支持微博、知乎、小红书、抖音、QQ空间等平台，一键备份文字、图片、视频、评论等内容到本地。',
+  keywords = 'WebCloner,网站备份,微博备份,知乎备份,小红书备份,抖音备份,QQ空间备份,社交媒体备份,内容备份工具',
+  image = '/favicon.svg',
+  url = 'https://webcloner.bytefuse.cn',
+  lang = 'zh-CN'
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, url).href;
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="generator" content={Astro.generator} />
+
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="ByteFuse" />
+		<meta name="robots" content="index, follow" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image} />
+		<meta property="og:locale" content={lang} />
+		<meta property="og:site_name" content="WebCloner" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={image} />
+
+		<script is:inline type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "WebCloner",
+			"applicationCategory": "UtilitiesApplication",
+			"operatingSystem": "Windows",
+			"description": "WebCloner 是一个强大的网站内容备份工具，支持微博、知乎、小红书、抖音、QQ空间等平台。",
+			"offers": {
+				"@type": "Offer",
+				"price": "10",
+				"priceCurrency": "CNY"
+			}
+		}
+		</script>
+
 		<script is:inline src="https://at.alicdn.com/t/c/font_5026634_g3jvfo2f99t.js"></script>
 	</head>
 	<body>
