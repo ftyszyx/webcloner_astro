@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "notifications": [
+    {
+      "id": "notif_2026_005",
+      "type": "update",
+      "level": "info",
+      "title": "Nezha v0.3.2 released",
+      "body": "Added a new Code Review view, 支持中文, fixed several bugs.",
+      "url": "https://github.com/ftyszyx/nezha",
+      "created_at": "2026-04-27",
+      "expires_at": null,
+      "popup": true,
+      "min_app_version": null,
+      "max_app_version": null
+    }
+  ]
+}
